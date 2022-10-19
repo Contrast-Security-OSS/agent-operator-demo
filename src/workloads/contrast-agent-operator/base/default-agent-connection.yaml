@@ -1,0 +1,18 @@
+apiVersion: agents.contrastsecurity.com/v1beta1
+kind: ClusterAgentConnection
+metadata:
+  name: default-agent-connection
+  namespace: contrast-agent-operator
+spec:
+  template:
+    spec:
+      url: https://teamserver-staging.contsec.com/Contrast
+      apiKey:
+        secretName: default-agent-connection-secret
+        secretKey: apiKey
+      serviceKey:
+        secretName: default-agent-connection-secret
+        secretKey: serviceKey
+      userName:
+        secretName: default-agent-connection-secret
+        secretKey: userName

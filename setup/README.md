@@ -15,6 +15,7 @@ k3s version v1.24.4-k3s1 (default)
 ## Create the Cluster
 
 ```bash
+# Create the cluster.
 k3d cluster create \
     contrast-agent-operator-demo \
     --kubeconfig-switch-context \
@@ -23,14 +24,19 @@ k3d cluster create \
     -p "8083:30083@loadbalancer" \
     -p "8084:30084@loadbalancer" \
     --agents 3
-```
 
-```bash
 # Bootstrap ArgoCD.
 kubectl apply -k src/workloads/argocd
 
 # Added ArgoCD projects (to start loading everything else).
 kubectl apply -f src/projects
+
+# Make sure to add the required secrets.
+kubectl -n contrast-agent-operator \
+    create secret generic default-agent-connection-secret \
+    --from-literal=apiKey=TODO \
+    --from-literal=serviceKey=TODO \
+    --from-literal=userName=TODO
 ```
 
 ## Cleanup

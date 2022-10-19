@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: contrast-agent-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Contrast-Security-OSS/agent-operator-demo.git
+    targetRevision: HEAD
+    path: src/workloads/contrast-agent-operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
