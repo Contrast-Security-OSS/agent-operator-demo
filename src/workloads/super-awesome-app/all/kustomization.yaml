@@ -1,3 +1,4 @@
 resources:
 - base/namespace.yaml
+- base/webgoat-net-injector.yaml
 - base/webgoat-net.yaml

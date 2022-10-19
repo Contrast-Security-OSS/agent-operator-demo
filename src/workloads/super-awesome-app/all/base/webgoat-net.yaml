@@ -4,6 +4,7 @@ metadata:
   name: webgoat-net
   labels:
     app: webgoat-net
+    contrast/inject: dotnet-core
 spec:
   replicas: 2
   revisionHistoryLimit: 0
