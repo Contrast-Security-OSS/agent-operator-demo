@@ -6,7 +6,7 @@ metadata:
 spec:
   template:
     spec:
-      url: https://teamserver-staging.contsec.com/Contrast
+      url: https://apptwo.contrastsecurity.com/Contrast
       apiKey:
         secretName: default-agent-connection-secret
         secretKey: apiKey
