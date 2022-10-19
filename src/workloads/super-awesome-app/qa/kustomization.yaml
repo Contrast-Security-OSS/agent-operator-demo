@@ -1,4 +1,4 @@
-namespace: demo-qa
+namespace: super-awesome-app-qa
 
 bases:
   - ../all

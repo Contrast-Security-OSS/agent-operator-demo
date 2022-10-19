@@ -1,4 +1,4 @@
-namespace: demo-prod
+namespace: super-awesome-app-prod
 
 bases:
   - ../all
