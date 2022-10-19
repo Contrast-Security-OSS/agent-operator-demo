@@ -1,0 +1,4 @@
+namespace: demo-prod
+
+bases:
+  - ../all

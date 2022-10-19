@@ -1,0 +1,4 @@
+namespace: demo-qa
+
+bases:
+  - ../all

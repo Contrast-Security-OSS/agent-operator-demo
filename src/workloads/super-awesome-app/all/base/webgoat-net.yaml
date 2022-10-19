@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webgoat-net
+  labels:
+    app: webgoat-net
+spec:
+  replicas: 2
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: webgoat-net
+  template:
+    metadata:
+      labels:
+        app: webgoat-net
+    spec:
+      containers:
+        - image: ghcr.io/contrast-security-oss/webgoat.net:latest
+          name: app
+          ports:
+            - containerPort: 80
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1024M
