@@ -2,3 +2,12 @@ namespace: super-awesome-app-prod
 
 bases:
   - ../all
+
+patches:
+  - target:
+      kind: Service
+      name: webgoat-net
+    patch: |-
+      - op: replace
+        path: /spec/ports/0/nodePort
+        value: 30084

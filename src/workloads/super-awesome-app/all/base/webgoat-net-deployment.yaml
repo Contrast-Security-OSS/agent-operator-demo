@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: webgoat-net
   labels:
-    app: webgoat-net
+    app.kubernetes.io/name: webgoat-net
     contrast/inject: dotnet-core
 spec:
   replicas: 2
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: webgoat-net
+      app.kubernetes.io/name: webgoat-net
   template:
     metadata:
       labels:
-        app: webgoat-net
+        app.kubernetes.io/name: webgoat-net
     spec:
       containers:
         - image: ghcr.io/contrast-security-oss/webgoat.net:latest
