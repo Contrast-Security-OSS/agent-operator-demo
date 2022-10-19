@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: definitions
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Contrast-Security-OSS/agent-operator-demo.git
+    targetRevision: HEAD
+    path: src/projects
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  url: http://localhost:8082
+  repositories: |
+    - type: helm
+      url: https://kubernetes.github.io/dashboard/
+      name: kubernetes-dashboard
+  users.anonymous.enabled: "true"

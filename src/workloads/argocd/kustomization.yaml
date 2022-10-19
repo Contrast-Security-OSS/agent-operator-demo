@@ -1,0 +1,18 @@
+namespace: argocd
+
+# Upstream kustomize is broken with this syntax:
+# https://github.com/kubernetes-sigs/kustomize/issues/2538
+# Downgrade to 3.5.5 if you need to rebuild this. e.g. reinstall Argocd during major upgrades.
+# https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv3.5.5
+# ^ This seems fixed in at least v4.5.7.
+
+bases:
+- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.4.14
+
+resources:
+- base/argocd-namespace.yaml
+
+patchesStrategicMerge:
+- overlays/argocd-cm.yaml
+- overlays/argocd-rbac-cm.yaml
+- overlays/argocd-server-service.yaml
