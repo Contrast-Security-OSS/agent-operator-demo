@@ -20,16 +20,23 @@ spec:
         - image: webgoat/webgoat-8.0:v8.1.0
           name: app
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: http
           livenessProbe:
             httpGet:
-              path: /
-              port: 80
+              path: /WebGoat
+              port: 8080
           readinessProbe:
             httpGet:
-              path: /
-              port: 80
+              path: /WebGoat
+              port: 8080
+          startupProbe:
+            httpGet:
+              path: /WebGoat
+              port: 8080
+            failureThreshold: 30
+            periodSeconds: 3
+            initialDelaySeconds: 30
           resources:
             limits:
               cpu: '1'
