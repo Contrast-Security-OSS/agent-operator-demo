@@ -17,11 +17,14 @@ spec:
         app.kubernetes.io/name: webgoat-net
     spec:
       containers:
-        - image: ghcr.io/contrast-security-oss/webgoat.net:latest
+        - image: contrastsecuritydemo/netflicks:1.0
           name: app
           ports:
             - containerPort: 80
               name: http
+          env:
+            - name: ConnectionStrings__DotNetFlicksConnection
+              value: "Server=tcp:localhost,1433;Initial Catalog=DotNetFlicksDb;Persist Security Info=False;User ID=sa;Password=reallyStrongPwd123;MultipleActiveResultSets=False;"
           livenessProbe:
             httpGet:
               path: /
@@ -39,3 +42,16 @@ spec:
             limits:
               cpu: '1'
               memory: 1024M
+        - name: netflicks-db
+          image: mcr.microsoft.com/mssql/server:2019-latest
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              value: "reallyStrongPwd123"
+          resources:
+            limits:
+              cpu: '1'
+              memory: 2048M

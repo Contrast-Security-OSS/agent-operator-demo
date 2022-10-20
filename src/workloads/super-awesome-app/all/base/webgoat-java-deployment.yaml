@@ -17,22 +17,22 @@ spec:
         app.kubernetes.io/name: webgoat-java
     spec:
       containers:
-        - image: webgoat/webgoat-8.0:v8.1.0
+        - image: contrastsecuritydemo/spring-petclinic:1.5.1
           name: app
           ports:
             - containerPort: 8080
               name: http
           livenessProbe:
             httpGet:
-              path: /WebGoat
+              path: /
               port: 8080
           readinessProbe:
             httpGet:
-              path: /WebGoat
+              path: /
               port: 8080
           startupProbe:
             httpGet:
-              path: /WebGoat
+              path: /
               port: 8080
             failureThreshold: 30
             periodSeconds: 3
