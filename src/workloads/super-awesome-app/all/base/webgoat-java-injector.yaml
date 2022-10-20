@@ -1,0 +1,10 @@
+apiVersion: agents.contrastsecurity.com/v1beta1
+kind: AgentInjector
+metadata:
+  name: webgoat-java-injector
+spec:
+  type: java
+  selector:
+    labels:
+      - name: contrast/inject
+        value: java

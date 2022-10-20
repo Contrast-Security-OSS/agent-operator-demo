@@ -1,5 +1,7 @@
 resources:
 - base/namespace.yaml
+- base/webgoat-java-deployment.yaml
+- base/webgoat-java-injector.yaml
 - base/webgoat-net-deployment.yaml
 - base/webgoat-net-injector.yaml
 - base/webgoat-net-service.yaml
