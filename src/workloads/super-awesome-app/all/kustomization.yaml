@@ -1,7 +1,7 @@
 resources:
 - base/namespace.yaml
-- base/webgoat-java-deployment.yaml
-- base/webgoat-java-injector.yaml
-- base/webgoat-net-deployment.yaml
-- base/webgoat-net-injector.yaml
-- base/webgoat-net-service.yaml
+- base/netflicks-net-deployment.yaml
+- base/netflicks-net-injector.yaml
+- base/netflicks-net-service.yaml
+- base/petclinic-java-deployment.yaml
+- base/petclinic-java-injector.yaml

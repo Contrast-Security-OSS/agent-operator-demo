@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: webgoat-net
+  name: netflicks-net
 spec:
   ports:
     - name: http
@@ -10,5 +10,5 @@ spec:
       protocol: TCP
       targetPort: 80
   selector:
-    app.kubernetes.io/name: webgoat-net
+    app.kubernetes.io/name: netflicks-net
   type: NodePort

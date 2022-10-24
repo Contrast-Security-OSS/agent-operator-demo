@@ -1,10 +1,10 @@
 apiVersion: agents.contrastsecurity.com/v1beta1
 kind: AgentInjector
 metadata:
-  name: webgoat-net-injector
+  name: petclinic-java-injector
 spec:
-  type: dotnet-core
+  type: java
   selector:
     labels:
       - name: contrast/inject
-        value: dotnet-core
+        value: java
