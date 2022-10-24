@@ -4,5 +4,8 @@ bases:
   - github.com/Contrast-Security-OSS/agent-operator/manifests/install/prod?ref=v0.9.0
 
 resources:
-- base/default-agent-configuration.yaml
-- base/default-agent-connection.yaml
+  - base/default-agent-configuration.yaml
+  - base/default-agent-connection.yaml
+
+patchesStrategicMerge:
+  - overlays/demo-settings.yaml
